@@ -3,7 +3,7 @@
  * c程序的主函数：c语言从主函数的第一条语句开始执行，
 然后按照从上往下的顺序执行到最后一条语句
 c程序的入口和出口，main函数一结束程序也结束了*/
-int main() {
+int main1() {
     printf("Hello, World!\n");
 
 /*标识符：只能包含数字、字母和下划线
@@ -108,5 +108,63 @@ int main() {
     printf("'1'->1('1'-'0'):%d\n",'1'-'0');
     //整数的整数形式转字符形式
     printf("4->'4'('4'+'0'):%c\n",4+'0');
+
+    //转义字符\n
+    printf("\n");
+    //\t tab键
+    printf("1\t2\t3\t4\n");
+    printf("%d\n",sizeof('\t'));
+
+    printf("\\n");
+    printf("%d\n",sizeof('\n'));//字符本质上是一个占一个字节的整数，取的\n的ASCII码值，整数占4个
+    printf("%d\n",sizeof("\\n"));
+    printf("\"Hello World\"\n");//"Hello World"
+
+    /*
+     * 实型(浮点型):float、double
+     * 单精度浮点型:float、精确到小数点后6位
+     * 双精度浮点型:double、精确到小数点后12位
+     * 不以f结尾的常量默认是double类型，以f结尾的常量(如3.14)是float类型。
+     * */
+    float f = 23.145678912f;//23.14是float类型 23.14F
+    double f2 = 23.123456789123;
+    printf("float: %f\n",f);
+    printf("double: %.12lf\n",f2);
+    printf("float: %10.3f\n",f);//f =        23.145  %n.mf n一共几位 m小数点后几位
+
+    /*进制也就是进位制，是人们规定的一种进位方法。对于任何一种进制-X进制，就表示某一位置上的数运算时是逢x进一位。
+     * 十进制是逢十进一，十六进制是逢十六进一，二进制就是逢二进一，以此类推，x进制就是逢x进位*/
+    char ch10 = 0b11110010;
+    unsigned char ch11 = 0b11110010;
+    printf("%d\n",ch10);
+    printf("%d\n",ch11);
+    printf("%f\n",3/2);//结果为0引发的思考
+    //练习：
+    char c10= 250;
+    unsigned char d10;
+    char f10;
+    f10 = c10 + 249;
+    d10 = c10 +249;
+    printf("d = %u\n",d10);
+    printf("f=%u\n",f10);
+    printf("f=%d\n",f10);
+
+//    int x;
+//    scanf("%d",&x);
+//    printf("x: %d\n",x);
+
+
+//    char y;
+//    scanf("%c",&y);
+//    printf("y: %c\n",y);
+
+    int a,b5;
+    char c5;
+    scanf("%d %c",&a,&c5);
+    printf("a: %d,c: %c\n",a,c5);
+    getchar();//捕获回车键
+    char d5;
+    scanf("%c",&d5);//捕获的是键盘输入的回车键，保存在内存缓冲区
+    printf("d:%c\n",d5);
     return 0;
 }
