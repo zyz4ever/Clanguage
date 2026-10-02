@@ -65,5 +65,83 @@ int main(){
 
     //按位右移: >> 右移n位，将最右边的n个bit位删除，左边补符号位(正数补n个0，负数补n个1)
     //右移n位: 除以2的n次方
+    //逗号运算符:最后结果是表达式1的结果
+    int a10 = 3;
+    int b10;
+    //逗号运算符：=号优先级高于逗号，先计算=，=从右至左结合性，先计算右侧表达式
+    b10 = a10 *= 2,a10 += 4;
+    printf("b:%d,a:%d\n",b10,a10);
+    //流程控制
+    //if语句
+    /*
+    int a11;
+    scanf("%d",&a11);//从键盘上输入一个整数保存到变量a中
+    //如果a的值大于10 打印 a>10
+    if (a11>10)
+    {
+        printf("a>10\n");
+    }
+    else
+    {
+        printf("a<=10\n");
+    }
+     */
+    /*
+    //在键盘上输入三个整数，输出最大值
+    //1、从键盘上输入三个整数，分别保存到变量a,b,c中
+    int a12,b12,c12;
+    printf("plz input 3 integer numbers\n");
+    scanf("%d %d %d",&a12,&b12,&c12);
+    //2、使用变量max 保存a和b之间的最大值
+    int max;
+    //如果a>b，max=a,否则max=b
+    if (a12>b12)
+    {
+        max = a12;
+    }
+    else
+    {
+        max = b12;
+    }
+    //3、拿max和c比较大小
+    if(c12>max)
+    {
+        max = c12;
+    }
+    printf("max:%d\n",max);
+*/
+    /*
+    //在键盘上输入一个年份，判断该年是否为闰年
+    //闰年:能够被4整除但是不能够被100整除，或者能够被400整除 ||
+    int year;
+    printf("plz input a year number\n");
+    scanf("%d",&year);
+
+    if((year%4==0 && year%100!=0)||(year%400==0))
+    {
+        printf("leap year\n");
+    }
+    else
+    {
+        printf("Not leap year\n");
+    }
+    */
+    int day;
+    printf("plz input a number\n");
+    scanf("%d",&day);
+    switch (day)
+    {
+        case 1:
+            printf("Monday\n");
+            break;
+        case 2:
+            printf("Tuesday\n");
+            break;
+        case 3:
+            printf("Wednesday\n");
+            break;
+        default:
+            printf("not define\n");
+    }
     return 0;
 }
