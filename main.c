@@ -92,11 +92,62 @@ int main()
 
     }
      */
+#if 0//程序卡住了
     /*
     1、程序卡住了
-    2、程序异常退出
+    2、程序异常退出11
     3、程序运行的结果和预期的不一致
 
      */
+    int x=11;
+    char ch;
+    int a = 10,b  = 100;
+    printf("plz input a number:\n");
+    scanf("%d",&x);//捕获从键盘上输入的内容,并且把这些内容当成整数形式保存到变量x中
+    printf("[%s %d]x:%d\n",__func__ ,__LINE__,x);
+/*
+    char buff[10] = {0};
+    scanf("%s",buff);
+    printf("%s\n",buff);*/
+    printf("plz input a number:\n");
+    scanf("%d",&a);//捕获从键盘上输入的内容,并且把这些内容当成整数形式保存到变量x中
+    printf("[%s %d]x:%d\n",__func__ ,__LINE__,a);
+
+    //陷入了无限循环(死循环)
+    //循环变量忘记自增或者自减
+    /*int i1;
+    for (i1=0;i1<10;)
+    {
+        printf("Hello");
+    }*/
+    int i1,y=10;
+    //如果陷入了死循环，将i和y的值打印出来，判断为啥i会一直小于y
+    /*
+    for(i1=0;i1<y;)
+    {
+        //在循环中,y的值发生了变化,导致i1永远小于y 导致无限循环
+        printf("[%s %d] i:%d,y:%d\n",__func__ ,__LINE__,i1,y);
+        i1++;
+
+    }
+     */
+    printf("[%s %d]\n",__func__ ,__LINE__);
+    i1 = 0;
+    int sum1  = 0;
+    while(i1<y)
+    {
+        //在循环体中 i1的值忘记增加了 导致无限循环
+        sum1 += i1 ;
+        //如果陷入了死循环，将i和y的值打印出来，判断为啥i会一直小于y
+        printf("[%s %d] i:%d,y:%d\n",__func__ ,__LINE__,i1,y);
+        i1++;
+    }
+#endif
+
+    //程序异常退出了
+    int x,y;
+    printf("plz input two numbers:\n");
+    scanf("%d %d",&x,&y);
+    printf("val:%d\n",x/y);
     return 0;
 }
