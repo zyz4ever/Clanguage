@@ -144,10 +144,33 @@ int main()
     }
 #endif
 
-    //程序异常退出了
+#if 0    //程序异常退出了 数组越界 指针访问出错
     int x,y;
     printf("plz input two numbers:\n");
     scanf("%d %d",&x,&y);
-    printf("val:%d\n",x/y);
+    if (y!=0)//if (y)
+        printf("[%s %d] val:%d\n",__func__ ,__LINE__,x/y);
+    printf("[%s %d] hello\n",__func__ ,__LINE__);
+#endif
+    int x;
+    int y = 5;
+    //循环变量没有初始化 可能会导致循环次数不定的
+    for (;x<y;x++)//不同的编译器对代码进行优化，不同的编译器对没有初始化的变量处理是不一致的，是未知的
+    {
+        printf("hello\n");
+    }
+
+    //计算1~100的和
+    int sum1 ;//没有初始化
+    printf("[%s %d]sum1:%d\n",__func__ ,__LINE__,sum1);
+    for (x=1;x<=100;x++)
+        sum1+=x;
+    printf("[%s %d]sum1:%d\n",__func__ ,__LINE__,sum1);
+
+    //整数除以整数结果是整数
+    printf("%d\n",5/2);
+
+    //如果希望整数除以整数得到浮点数，将其中一个整数变成浮点数
+    printf("%f\n",5/(2*1.0));
     return 0;
 }
